@@ -6,7 +6,7 @@ module.exports = async (req, res, next) => {
 
     await NoteDAL.updateNote({ finder: { _id }, updates });
 
-    res.sendStatus(200);
+    res.status(200).json({ type: 'Success' });
 
   } catch (error) {
     next(error);

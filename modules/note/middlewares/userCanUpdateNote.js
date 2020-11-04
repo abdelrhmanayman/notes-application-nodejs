@@ -2,7 +2,11 @@ const NoteDAL = require('../noteDAL');
 
 module.exports = async (req, res, next) => {
   const userID = req.user._id.toString();
-  const { noteID } = req.body;
+  let { noteID } = req.body;
+
+  if (!noteID)
+    noteID = req.params.noteID;
+
   const note = await NoteDAL.findNote({ finder: { _id: noteID } });
 
   if (!note)
