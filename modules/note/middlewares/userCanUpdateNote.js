@@ -13,3 +13,6 @@ module.exports = async (req, res, next) => {
 
   next();
 };
+
+
+// We can transfer this middleware to the middlewares folder at index directory
